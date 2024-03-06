@@ -1,0 +1,22 @@
+<configuration debug="true">
+    <property name="logPath"
+              value="${log.file.path:-${user.home}/logs/phm}"/>
+    <property name="logLevel" value="${log.level:-INFO}"/>
+    <property name="maxFileSize" value="${file.maxSize:-10MB}"/>
+    <property name="maxHistory" value="${maxhistory:-90}"/>
+    <property name="encoderPattern"
+              value="${encoder.pattern:-%d{yyyy-MM-dd HH:mm:ss.SSS} |- %-5level %logger{80} - %msg %n}"/>
+    <property name="zipExt" value="%d{yyyy-MM-dd}.%i"/>
+
+    <appender name="console"
+              class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${encoderPattern}
+            </pattern>
+        </encoder>
+    </appender>
+    <root level="warn">
+        <appender-ref ref="console"/>
+    </root>
+
+</configuration>
